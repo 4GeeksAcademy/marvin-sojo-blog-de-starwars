@@ -1,3 +1,12 @@
 /* 
     General Styles
 */
+body {
+  background-color: black;
+}
+
+.slick-slide > div {
+  margin: 2rem 1rem;
+}
+
+
