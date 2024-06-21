@@ -1,8 +1,12 @@
-.card-img-top {
+/*.card-img-top {
   height: 55%;
   object-fit: cover;
 }
 
 .card {
   height: 35rem;
+}*/
+
+.text-title-character, .text-title-planets, .text-title-vehicles{
+  color: #ffffff;
 }

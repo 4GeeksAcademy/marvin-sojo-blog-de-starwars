@@ -7,16 +7,15 @@ import CardPlanet from "../component/CardPlanet.jsx";
 
 export const Home = () => (
   <div className="container">
-    <div className="mt-0">
-      <h3 className="text-warning my-2">Characters</h3>
+    <div className="mt-2">
       <CardCharacter />
     </div>
-    <h3 className="text-white mt-2 mb-1">Planets</h3>
-    <div className="d-flex">
+
+    <div className="mt-5">
       <CardPlanet />
     </div>
-    <h3 className="text-white mt-2 mb-1">vehicles</h3>
-    <div className="d-flex">
+
+    <div className="mt-5">
       <CardVehicle />
     </div>
   </div>

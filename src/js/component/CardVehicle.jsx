@@ -21,7 +21,7 @@ const CardVehicle = () => {
               className="card-img-top"
             />
             <div className="container">
-              <h5 className="my-2">{vehicle.name}</h5>
+              <h5 className="my-2 Text-white">{vehicle.name}</h5>
               <p className="m-0 p-0">Model: {vehicle.model}</p>
               <p className="m-0 p-0">Manufacturer: {vehicle.manufacturer}</p>
             </div>

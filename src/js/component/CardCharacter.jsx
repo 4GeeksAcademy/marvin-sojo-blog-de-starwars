@@ -26,7 +26,7 @@ const CardCharacter = () => {
               <p className="m-0 p-0">Hair Color: {character.hair_color}</p>
               <p className="m-0 p-0">Eye-Color: {character.eye_color}</p>
             </div>
-            <div className="container d-flex justify-content-between my-2 align-text-bottom">
+            <div className="container d-flex justify-content-between my-2">
               <Link to={"/description/character/" + character.url.split("/")[5]}>
                 <button className="btn btn-outline-secondary">
                   Learn more!
