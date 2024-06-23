@@ -4,6 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       characters: [],
       vehicles: [],
       planets: [],
+      favorites: [],
+      counterFavorites: 0,
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -13,7 +15,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (response.ok) {
             const data = await response.json();
             setStore({ characters: data.results });
-            console.log(data);
           }
         } catch (error) {
           console.log(error);
@@ -41,6 +42,27 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         } catch (error) {
           console.log(error);
+        }
+      },
+
+      addFavorite: async (item) => {
+        const store = getStore();
+        if (store.favorites.find((favorite) => favorite == item)) {
+          console.log("Item ya existe");
+        } else {
+          setStore({ favorites: [...store.favorites, item] });
+          setStore({ counterFavorites: store.counterFavorites + 1 });
+        }
+      },
+
+      deleteFavorite: async (id) => {
+        const store = getStore();
+        if (id) {
+          const filterFavorite = store.favorites.filter(
+            (favorite) => favorite.url !== id
+          );
+          setStore({ favorites: filterFavorite });
+          setStore({ counterFavorites: store.counterFavorites - 1 });
         }
       },
     },

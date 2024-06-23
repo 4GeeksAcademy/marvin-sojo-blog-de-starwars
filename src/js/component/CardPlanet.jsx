@@ -4,24 +4,34 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 const CardPlanet = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
 
-  const placeholderImage = "https://starwars-visualguide.com/assets/img/placeholder.jpg"
+  function addToFavorite(planet) {
+    actions.addFavorite(planet);
+  }
+  const tatooine = "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357"
+  const placeholderImage =
+    "https://starwars-visualguide.com/assets/img/placeholder.jpg";
 
-  function handleImageError(e){
-    e.target.src = placeholderImage
+  function handleImageError(e) {
+    e.target.src = placeholderImage;
   }
 
   return (
     <div className="row flex-nowrap overflow-auto gap-1">
       {store.planets.map((planet) => {
         return (
-          <div key={planet.url} className="card col-md-3 bg-dark text-secondary p-0">
+          <div
+            key={planet.url}
+            className="card col-md-3 bg-dark text-secondary p-0"
+          >
             <img
-              src={`https://starwars-visualguide.com/assets/img/planets/${
-                planet.url.split("/")[5]
-              }.jpg`|| placeholderImage}
-              className="card-img-top"
+              src={planet.name == "Tatooine"? `https://oyster.ignimgs.com/mediawiki/apis.ign.com/star-wars-episode-7/4/4b/Tatooine-3.jpg?width=800` :
+                `https://starwars-visualguide.com/assets/img/planets/${
+                  planet.url.split("/")[5]
+                }.jpg` || placeholderImage
+              }
+              className={planet.name == "Tatooine"? `img-tatooin`: "card-img-top"}
               onError={handleImageError}
             />
             <div className="container">
@@ -29,13 +39,16 @@ const CardPlanet = () => {
               <p className="m-0 p-0">Population: {planet.population}</p>
               <p className="m-0 p-o">Terrain: {planet.terrain}</p>
             </div>
-            <div className="container d-flex justify-content-between my-2">
-            <Link to={"/description/planet/" + planet.url.split("/")[5]}>
+            <div className="container d-flex justify-content-between align-items-end my-2 bg-dark h-100">
+              <Link to={"/description/planet/" + planet.url.split("/")[5]}>
                 <button className="btn btn-outline-secondary">
                   Learn more!
                 </button>
               </Link>
-              <button className="btn btn-outline-danger">
+              <button
+                className="btn btn-outline-danger ml-auto"
+                onClick={() => addToFavorite(planet)}
+              >
                 <i className="fa-regular fa-heart"></i>
               </button>
             </div>

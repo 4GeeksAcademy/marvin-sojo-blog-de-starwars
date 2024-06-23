@@ -75,47 +75,59 @@ const DescriptionCharacter = () => {
               </p>
             </div>
           </div>
+
           <div className="container row mt-4">
-            <ul className="container col text-white list-unstyled">
-              films:
-              {descriptionCharacter.films.map((film) => {
-                return (
-                  <li className="text-secondary" key={film}>
-                    {film}
-                  </li>
-                );
-              })}
-            </ul>
-            <ul className="container col text-white list-unstyled">
-              Species:
-              {descriptionCharacter.species.map((specie) => {
-                return (
-                  <li className="text-secondary" key={specie}>
-                    {specie}
-                  </li>
-                );
-              })}
-            </ul>
-            <ul className="container col text-white list-unstyled">
-              Vehicles:
-              {descriptionCharacter.vehicles.map((vehicle) => {
-                return (
-                  <li className="text-secondary" key={vehicle}>
-                    {vehicle}
-                  </li>
-                );
-              })}
-            </ul>
-            <ul className="container col text-white list-unstyled">
-              Starships:
-              {descriptionCharacter.starships.map((starship) => {
-                return (
-                  <li className="text-secondary" key={starship}>
-                    {starship}
-                  </li>
-                );
-              })}
-            </ul>
+            {descriptionCharacter.films != "" && (
+              <ul className="container col text-white list-unstyled">
+                films:
+                {descriptionCharacter.films.map((film) => {
+                  return (
+                    <li className="text-secondary" key={film}>
+                      {film}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+
+            {descriptionCharacter.species != "" && (
+              <ul className="container col text-white list-unstyled">
+                Species:
+                {descriptionCharacter.species.map((specie) => {
+                  return (
+                    <li className="text-secondary" key={specie}>
+                      {specie}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+
+            {descriptionCharacter.vehicles != "" && (
+              <ul className="container col text-white list-unstyled">
+                Vehicles:
+                {descriptionCharacter.vehicles.map((vehicle) => {
+                  return (
+                    <li className="text-secondary" key={vehicle}>
+                      {vehicle}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+
+            {descriptionCharacter.starships != "" && (
+              <ul className="container col text-white list-unstyled">
+                Starships:
+                {descriptionCharacter.starships.map((starship) => {
+                  return (
+                    <li className="text-secondary" key={starship}>
+                      {starship}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
         </div>
       </div>

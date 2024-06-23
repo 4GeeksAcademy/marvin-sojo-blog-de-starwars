@@ -15,7 +15,11 @@ const DescriptionPlanet = () => {
       <div className="row">
         <div className="container col-md-4">
           <img
-            src={`https://starwars-visualguide.com/assets/img/planets/${
+            src={descriptionPlanet.name == "Tatooine"? `https://oyster.ignimgs.com/mediawiki/apis.ign.com/star-wars-episode-7/4/4b/Tatooine-3.jpg?width=800` :
+              
+              
+              
+              `https://starwars-visualguide.com/assets/img/planets/${
               descriptionPlanet.url.split("/")[5]
             }.jpg`}
             className="container img-fluid"
@@ -106,37 +110,16 @@ const DescriptionPlanet = () => {
 export default DescriptionPlanet;
 
 /**
- * {
-      "name": "Tatooine",
-      "rotation_period": "23",
-      "orbital_period": "304",
-      "diameter": "10465",
-      "climate": "arid",
-      "gravity": "1 standard",
-      "terrain": "desert",
-      "surface_water": "1",
-      "population": "200000",
-      "residents": [
-        "https://swapi.dev/api/people/1/",
-        "https://swapi.dev/api/people/2/",
-        "https://swapi.dev/api/people/4/",
-        "https://swapi.dev/api/people/6/",
-        "https://swapi.dev/api/people/7/",
-        "https://swapi.dev/api/people/8/",
-        "https://swapi.dev/api/people/9/",
-        "https://swapi.dev/api/people/11/",
-        "https://swapi.dev/api/people/43/",
-        "https://swapi.dev/api/people/62/"
-      ],
-      "films": [
-        "https://swapi.dev/api/films/1/",
-        "https://swapi.dev/api/films/3/",
-        "https://swapi.dev/api/films/4/",
-        "https://swapi.dev/api/films/5/",
-        "https://swapi.dev/api/films/6/"
-      ],
-      "created": "2014-12-09T13:50:49.641000Z",
-      "edited": "2014-12-20T20:58:18.411000Z",
-      "url": "https://swapi.dev/api/planets/1/"
-    },
+ * {descriptionCharacter.starships != "" &&
+              <ul className="container col text-white list-unstyled">
+              Starships:
+              {descriptionCharacter.starships.map((starship) => {
+                return (
+                  <li className="text-secondary" key={starship}>
+                    {starship}
+                  </li>
+                );
+              })}
+            </ul>
+            }
  */

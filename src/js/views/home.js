@@ -8,14 +8,17 @@ import CardPlanet from "../component/CardPlanet.jsx";
 export const Home = () => (
   <div className="container">
     <div className="mt-2">
+      <h3 className="text-white">Character</h3>
       <CardCharacter />
     </div>
 
     <div className="mt-5">
+    <h3 className="text-white">Planets</h3>
       <CardPlanet />
     </div>
 
     <div className="mt-5">
+    <h3 className="text-white">Vehicles</h3>
       <CardVehicle />
     </div>
   </div>

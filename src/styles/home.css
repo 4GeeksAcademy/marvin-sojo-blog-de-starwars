@@ -10,3 +10,13 @@
 .text-title-character, .text-title-planets, .text-title-vehicles{
   color: #ffffff;
 }
+
+.card-header{
+  height: 25%;
+}
+
+.img-tatooin{
+  width: 133%;
+  margin-left: -50px;
+  
+}
