@@ -1,3 +1,5 @@
+import { toast } from "sonner";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -47,11 +49,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       addFavorite: async (item) => {
         const store = getStore();
-        if (store.favorites.find((favorite) => favorite == item)) {
-          console.log("Item ya existe");
+        if (store.favorites.find((favorite) => favorite === item)) {
+          toast.error("Favorite already exists");
         } else {
           setStore({ favorites: [...store.favorites, item] });
           setStore({ counterFavorites: store.counterFavorites + 1 });
+          toast.success("Added to favorites");
         }
       },
 

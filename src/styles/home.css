@@ -1,22 +1,31 @@
-/*.card-img-top {
-  height: 55%;
-  object-fit: cover;
-}
-
-.card {
-  height: 35rem;
-}*/
-
-.text-title-character, .text-title-planets, .text-title-vehicles{
+.text-title-character,
+.text-title-planets,
+.text-title-vehicles {
   color: #ffffff;
 }
 
-.card-header{
+.card-header {
   height: 25%;
 }
 
-.img-tatooin{
+.img-tatooin {
   width: 133%;
   margin-left: -50px;
-  
+}
+
+.card-box-img {
+  height: 25rem;
+}
+
+.scroll-cards::-webkit-scrollbar {
+  height: 8px;
+  border-radius: 5px;
+  background-color: black;
+}
+
+.scroll-cards::-webkit-scrollbar-thumb {
+  background-color: #f7f7f6;
+  border-radius: 30px;
+  box-shadow: inset 0 0 8px #ffe81f;
+  box-shadow: inherit 0 5px #ffe81f;
 }

@@ -8,20 +8,20 @@ const DescriptionPlanet = () => {
   const descriptionPlanet = store.planets.find(
     (item) => item.url.split("/")[5] == params.id
   );
-  console.log(descriptionPlanet);
+  
 
   return (
     <div className="container bg-dark mt-3 px-0">
       <div className="row">
         <div className="container col-md-4">
           <img
-            src={descriptionPlanet.name == "Tatooine"? `https://oyster.ignimgs.com/mediawiki/apis.ign.com/star-wars-episode-7/4/4b/Tatooine-3.jpg?width=800` :
-              
-              
-              
-              `https://starwars-visualguide.com/assets/img/planets/${
-              descriptionPlanet.url.split("/")[5]
-            }.jpg`}
+            src={
+              descriptionPlanet.name == "Tatooine"
+                ? `https://oyster.ignimgs.com/mediawiki/apis.ign.com/star-wars-episode-7/4/4b/Tatooine-3.jpg?width=800`
+                : `https://starwars-visualguide.com/assets/img/planets/${
+                    descriptionPlanet.url.split("/")[5]
+                  }.jpg`
+            }
             className="container img-fluid"
             alt="..."
           />
@@ -80,26 +80,31 @@ const DescriptionPlanet = () => {
             </div>
           </div>
           <div className="container row mt-4">
-            <ul className="col-md-5 text-white list-unstyled">
-              Residents:
-              {descriptionPlanet.residents.map((resident) => {
-                return (
-                  <li className="text-secondary" key={resident}>
-                    {resident}
-                  </li>
-                );
-              })}
-            </ul>
-            <ul className="col-md-5 text-white list-unstyled">
-              Films:
-              {descriptionPlanet.films.map((film) => {
-                return (
-                  <li key={film} className="text-secondary">
-                    {film}
-                  </li>
-                );
-              })}
-            </ul>
+            {descriptionPlanet.residents != "" && (
+              <ul className="col-md-5 text-white list-unstyled">
+                Residents:
+                {descriptionPlanet.residents.map((resident) => {
+                  return (
+                    <li className="text-secondary" key={resident}>
+                      {resident}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+
+            {descriptionPlanet.films != "" && (
+              <ul className="col-md-5 text-white list-unstyled">
+                Films:
+                {descriptionPlanet.films.map((film) => {
+                  return (
+                    <li key={film} className="text-secondary">
+                      {film}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
         </div>
       </div>
@@ -109,17 +114,4 @@ const DescriptionPlanet = () => {
 
 export default DescriptionPlanet;
 
-/**
- * {descriptionCharacter.starships != "" &&
-              <ul className="container col text-white list-unstyled">
-              Starships:
-              {descriptionCharacter.starships.map((starship) => {
-                return (
-                  <li className="text-secondary" key={starship}>
-                    {starship}
-                  </li>
-                );
-              })}
-            </ul>
-            }
- */
+

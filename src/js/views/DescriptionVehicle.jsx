@@ -8,7 +8,6 @@ const DescriptionVehicle = () => {
   const descriptionVehicle = store.vehicles.find(
     (item) => item.url.split("/")[5] == params.id
   );
-  console.log(descriptionVehicle);
 
   return (
     <div className="container bg-dark mt-3 px-0">

@@ -11,27 +11,30 @@ const CardCharacter = () => {
   }
 
   return (
-    <div className="row flex-nowrap overflow-auto gap-1">
+    <div className="row scroll-cards flex-nowrap overflow-auto gap-2">
       {store.characters.map((character) => {
         return (
           <div
             key={character.url}
-            className="card col-md-3 bg-dark text-secondary p-0"
+            className="card col-md-3 col-sm-2 bg-dark text-secondary p-0 m-0 "
           >
-            <img
-              src={`https://starwars-visualguide.com/assets/img/characters/${
-                character.url.split("/")[5]
-              }.jpg`}
-              className="card-img-top"
-            />
+            <div className="card-box-img overflow-hidden">
+              <img
+                src={`https://starwars-visualguide.com/assets/img/characters/${
+                  character.url.split("/")[5]
+                }.jpg`}
+                className="card-img-top"
+              />
+            </div>
 
-            <div className="body-card container bg-dark opacity-75">
+            <div className="body-card container">
               <h5 className="my-2 text-white">{character.name}</h5>
               <p className="m-0 p-0">Gender: {character.gender}</p>
               <p className="m-0 p-0">Hair Color: {character.hair_color}</p>
               <p className="m-0 p-0">Eye-Color: {character.eye_color}</p>
             </div>
-            <div className="container d-flex justify-content-between align-items-end my-2 bg-dark h-100">
+
+            <div className="container d-flex justify-content-between align-items-end my-2">
               <Link
                 to={"/description/character/" + character.url.split("/")[5]}
               >

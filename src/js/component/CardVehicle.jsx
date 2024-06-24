@@ -11,12 +11,12 @@ const CardVehicle = () => {
   }
 
   return (
-    <div className="row flex-nowrap overflow-auto gap-1">
+    <div className="row scroll-cards flex-nowrap overflow-auto gap-1">
       {store.vehicles.map((vehicle) => {
         return (
           <div
             key={vehicle.url}
-            className="card col-md-3 bg-dark text-secondary p-0"
+            className="card col-md-3 bg-dark text-secondary p-0 overflow-hidden"
           >
             <img
               src={`https://starwars-visualguide.com/assets/img/vehicles/${

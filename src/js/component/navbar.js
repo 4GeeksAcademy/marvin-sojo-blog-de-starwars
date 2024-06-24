@@ -12,7 +12,6 @@ export const Navbar = () => {
   }
 
   const counter = store.counterFavorites;
-  console.log(counter);
 
   return (
     <>
@@ -32,7 +31,7 @@ export const Navbar = () => {
             </Link>
           </div>
           <div className="ml-auto">
-            <div class="btn-group">
+            <div className="btn-group">
               <button
                 className="btn btn-outline-danger"
                 role="button"
@@ -42,23 +41,36 @@ export const Navbar = () => {
               >
                 Favorites {counter}
               </button>
-              <ul className="dropdown-menu dropdown-menu-end">
+              <ul className="dropdown-menu dropdown-menu-end flex-nowrap overflow-auto">
                 {counter === 0 && (
                   <li className="my-2 text-center dark">Add favorites</li>
                 )}
                 {store.favorites.map((favorite) => {
                   return (
                     <div
-                      className="d-flex justify-content-between align-items-center px-1"
                       key={favorite.url}
+                      className="d-flex d-inline justify-content-between p-2"
                     >
-                      <li className="d-flex my-2">{favorite.name}</li>
-                      <button
-                        className="btn btn-outline-danger btn-sm"
-                        onClick={() => handleDeleteFavorite(favorite.url)}
-                      >
-                        <i className="fa-sharp fa-solid fa-trash-can"></i>
-                      </button>
+                      <div className="d-flex d-inline">
+                        <p className="my-2">
+                          {favorite.url.split("/")[4] == "people"
+                            ? `C`
+                            : favorite.url.split("/")[4][0].toUpperCase()}
+                        </p>
+                        <li className="my-2 item-dropdown">
+                          {" "}
+                          - {favorite.name}{" "}
+                        </li>
+                      </div>
+
+                      <div className="d-inline d-flex align-items-center">
+                        <button
+                          className="btn btn-outline-danger btn-sm my-2"
+                          onClick={() => handleDeleteFavorite(favorite.url)}
+                        >
+                          <i className="fa-sharp fa-solid fa-trash-can"></i>
+                        </button>
+                      </div>
                     </div>
                   );
                 })}
@@ -70,35 +82,3 @@ export const Navbar = () => {
     </>
   );
 };
-
-/**
- * <li className="nav-item dropdown d-flex">
-              <button
-                className="btn btn-outline-danger"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                data-bs-auto-close="outside"
-              >
-                Favorite {counter}
-              </button>
-              <ul className="dropdown-menu dropdown-menu-end">
-                {store.favorites.map((favorite) => {
-                  return (
-                    <div
-                      className="d-flex justify-content-between align-items-center px-1"
-                      key={favorite.url}
-                    >
-                      <li className="d-flex my-2">{favorite.name}</li>
-                      <button
-                        className="btn btn-outline-danger btn-sm"
-                        onClick={() => handleDeleteFavorite(favorite.url)}
-                      >
-                        <i className="fa-sharp fa-solid fa-trash-can"></i>
-                      </button>
-                    </div>
-                  );
-                })}
-              </ul>
-            </li>
- */

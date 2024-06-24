@@ -9,7 +9,8 @@ const CardPlanet = () => {
   function addToFavorite(planet) {
     actions.addFavorite(planet);
   }
-  const tatooine = "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357"
+  const tatooine =
+    "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357";
   const placeholderImage =
     "https://starwars-visualguide.com/assets/img/placeholder.jpg";
 
@@ -18,20 +19,24 @@ const CardPlanet = () => {
   }
 
   return (
-    <div className="row flex-nowrap overflow-auto gap-1">
+    <div className="row scroll-cards flex-nowrap overflow-auto gap-1">
       {store.planets.map((planet) => {
         return (
           <div
             key={planet.url}
-            className="card col-md-3 bg-dark text-secondary p-0"
+            className="card col-md-3 bg-dark text-secondary p-0 overflow-hidden"
           >
             <img
-              src={planet.name == "Tatooine"? `https://oyster.ignimgs.com/mediawiki/apis.ign.com/star-wars-episode-7/4/4b/Tatooine-3.jpg?width=800` :
-                `https://starwars-visualguide.com/assets/img/planets/${
-                  planet.url.split("/")[5]
-                }.jpg` || placeholderImage
+              src={
+                planet.name == "Tatooine"
+                  ? `https://oyster.ignimgs.com/mediawiki/apis.ign.com/star-wars-episode-7/4/4b/Tatooine-3.jpg?width=800`
+                  : `https://starwars-visualguide.com/assets/img/planets/${
+                      planet.url.split("/")[5]
+                    }.jpg` || placeholderImage
               }
-              className={planet.name == "Tatooine"? `img-tatooin`: "card-img-top"}
+              className={
+                planet.name == "Tatooine" ? `img-tatooin` : "card-img-top"
+              }
               onError={handleImageError}
             />
             <div className="container">
